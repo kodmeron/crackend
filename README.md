@@ -8,5 +8,5 @@ npm i
 
 sen:
 ```
-nope server.js
+node server.js
 ```
