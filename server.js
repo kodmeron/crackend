@@ -4,6 +4,8 @@ const app = express()
 
 const PORT = process.env.PORT || 3000
 
+const schedule = require('./schedule.js')
+schedule.init()
 
 app.get('/', (req, res) => {
   res.status(200).send('Shorty all good ahah')
