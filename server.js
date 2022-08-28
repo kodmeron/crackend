@@ -2,13 +2,15 @@ const express = require("express")
 
 const app = express()
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 const schedule = require('./schedule.js')
 schedule.init()
 
-app.get('/', (req, res) => {
-  res.status(200).send('Shorty all good ahah')
+app.get('/api', (req, res) => {
+  res.json({
+    message: "Shorty all good ahaha"
+  })
 })
 
 app.post("/", (req, res) => {
