@@ -23,7 +23,7 @@ mongoose
     process.exit();
   })
 
-
+app.use("/text/", require('./Routes/TextRoute'))
 
 app.get('/api', (req, res) => {
   res.json({
