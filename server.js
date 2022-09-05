@@ -8,20 +8,26 @@ schedule.init()
 
 const PORT = process.env.PORT || 3001
 
-const mongoose = require("mongoose");
 var cors = require("cors");
 app.use(cors());
 app.use(express.static(path.join(__dirname, "..", "build")));
 
-mongoose
-  .connect('mongodb+srv://mongomeron:mongoskolan1337@nhil.57ja3d4.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true })
-  .then(() => {
-    console.log('databasen är kopplad');
-  })
-  .catch((_error) => {
-    console.log('Det blir ba error med databasen asså');
-    process.exit();
-  })
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAe5WnwUJjsyQAD5_uHGoDnIp6Z4hHFDTs",
+  authDomain: "nhil-4830c.firebaseapp.com",
+  projectId: "nhil-4830c",
+  storageBucket: "nhil-4830c.appspot.com",
+  messagingSenderId: "670568431262",
+  appId: "1:670568431262:web:aa8df78715d0a1ed95058f",
+  measurementId: "G-VV917461H4"
+};
+
+const appConf = initializeApp(firebaseConfig);
+const analytics = getAnalytics(appConf);
 
 app.use("/text/", require('./Routes/TextRoute'))
 
